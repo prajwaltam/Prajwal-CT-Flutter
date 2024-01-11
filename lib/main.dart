@@ -80,17 +80,6 @@ class _MyHomePageState extends State<MyHomePage> {
 
 
   void _onUserLogin() {
-    // setState(() {
-    //   // This call to setState tells the Flutter framework that something has
-    //   // changed in this State, which causes it to rerun the build method below
-    //   // so that the display can reflect the updated values. If we changed
-    //   // _counter without calling setState(), then the build method would not be
-    //   // called again, and so nothing would appear to happen.
-    //   _counter++;
-    // });
-
-
-
     var stuff = ["bags", "shoes"];
     var profile = {
       'Name': 'FlutterProfile',
@@ -104,16 +93,17 @@ class _MyHomePageState extends State<MyHomePage> {
     } catch (e) {
       print(e);
     }
-
-    // var eventData = {
-    //   // Key:    Value
-    //   'first': 'partridge',
-    //   'second': 'turtledoves'
-    // };
-    // CleverTapPlugin.recordEvent("Flutter Event", eventData);
+  }  void _AddEvent() {
+    var eventData = {
+      // Key:    Value
+      'first': 'partridge',
+      'second': 'turtledoves'
+    };
+    CleverTapPlugin.recordEvent("Product viewed", eventData);
   }
 
   final mybuttonkey = GlobalKey();
+  final mybuttonkey2 = GlobalKey();
 
 
   @override
@@ -159,6 +149,13 @@ class _MyHomePageState extends State<MyHomePage> {
                 _onUserLogin();
               },
               child: const Text("OnUserLogin"),
+            ),
+            ElevatedButton(
+              key:mybuttonkey2,
+              onPressed: (){
+                _AddEvent();
+              },
+              child: const Text("AddEvent"),
             ),
           ],
         ),
